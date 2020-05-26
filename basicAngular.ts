@@ -1,6 +1,6 @@
-function sayHello(person: string): string{
-    return "Hello " + person;
-}
+// function sayHello(person: string): string{
+//     return "Hello " + person;
+// }
 
 
 
@@ -13,8 +13,10 @@ class Person{
     private state: string;
     private zipcode: string;
     private occupation: string;
+    private hourlyWage: number;
+    private hours: number;
 
-    constructor(firstN: string, lastN: string, age: string, phone: string, state: string, zipcode: string, occupation: string){
+    constructor(firstN: string, lastN: string, age: string, phone: string, state: string, zipcode: string, occupation: string, hourlyWage: number, hours?: number){
         this.firstN = firstN;
         this.lastN = lastN;
         this.age = age;
@@ -22,6 +24,12 @@ class Person{
         this.state= state;
         this.zipcode = zipcode;
         this.occupation = occupation;
+        this.hourlyWage = hourlyWage;
+        if(hours){
+            this.hours = hours;
+        } else {
+            this.hours = 40;
+        }
     }
 
     //getters
@@ -45,18 +53,27 @@ class Person{
     getOccupation(): string{
         return this.getFullName() + " works as a " + this.occupation + " at age " + this.age;
     }
+    weeklyWage(wage?: number): number{
+        wage = this.hourlyWage * this.hours;
+        return wage; 
+    }
+    personInfo(): string{
+        return this.getFullName() + " makes $" + this.weeklyWage() + " per Week!"
+    }
 
    
 
 }
 
-let person1 = new Person("Joe", "Smith", "23", "K-555", "Texas", "79903", "Teacher");
+let person1 = new Person("Joe", "Smith", "23", "K-555", "Texas", "79903", "Teacher", 23);
 
-let person2 = new Person("Hannah", "Storm", "56", "K-556", "Connecticut", "06001", "Sports Anchor");
+let person2 = new Person("Hannah", "Storm", "56", "K-556", "Connecticut", "06001", "Sports Anchor", 70);
 
-let person3 = new Person("Omar", "Little", "33", "K-576", "Maryland", "12116", "Character");
+let person3 = new Person("Omar", "Little", "33", "K-576", "Maryland", "12116", "Character", 80);
 
-let person4 = new Person("Jack", "Hallsburg", "18", "K-585", "Maine", "03901", "Mad Scientist");
+let person4 = new Person("Jack", "Hallsburg", "18", "K-585", "Maine", "03901", "Mad Scientist", 10);
+
+console.log(person4.weeklyWage());
 
 document.getElementById("id1").innerHTML = person1.getFullName();
 
@@ -65,3 +82,4 @@ document.getElementById("id2").innerHTML = person2.getLocation();
 document.getElementById("id3").innerHTML = person3.getNameAndPhone();
 
 document.getElementById("id4").innerHTML = person4.getOccupation();
+document.getElementById("id5").innerHTML = person3.personInfo();
