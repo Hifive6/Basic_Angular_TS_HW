@@ -2,9 +2,7 @@ function sayHello(person: string): string{
     return "Hello " + person;
 }
 
-let person1 = "Super Student";
 
-document.getElementById("id1").innerHTML = sayHello(person1);
 
 class Person{
 
@@ -27,20 +25,43 @@ class Person{
     }
 
     //getters
-    getfullName(): string{
-        return "Full Name: " + this.firstN + this.lastN;
+    getFullName(): string{
+        return "Full Name: " + this.firstN + " " +this.lastN;
+    }
+
+    setFullName(firstN: string, lastN: string): void{
+        this.firstN = firstN;
+        this.lastN = lastN;
     }
 
     getNameAndPhone(): string{
-        return this.getfullName() + 
+        return this.getFullName() + 
         "\nPhone Number: " + this.phone; 
     }
 
     getLocation(): string{
-        return this.getfullName() + " lives in the state of " + this.state + " witin the zipcode of " + this.zipcode;
+        return this.getFullName() + " lives in the state of " + this.state + " within the zipcode of " + this.zipcode;
+    }
+    getOccupation(): string{
+        return this.getFullName() + " works as a " + this.occupation + " at age " + this.age;
     }
 
-
-
+   
 
 }
+
+let person1 = new Person("Joe", "Smith", "23", "K-555", "Texas", "79903", "Teacher");
+
+let person2 = new Person("Hannah", "Storm", "56", "K-556", "Connecticut", "06001", "Sports Anchor");
+
+let person3 = new Person("Omar", "Little", "33", "K-576", "Maryland", "12116", "Character");
+
+let person4 = new Person("Jack", "Hallsburg", "18", "K-585", "Maine", "03901", "Mad Scientist");
+
+document.getElementById("id1").innerHTML = person1.getFullName();
+
+document.getElementById("id2").innerHTML = person2.getLocation();
+
+document.getElementById("id3").innerHTML = person3.getNameAndPhone();
+
+document.getElementById("id4").innerHTML = person4.getOccupation();
