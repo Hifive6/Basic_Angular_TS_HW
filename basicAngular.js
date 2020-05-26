@@ -43,13 +43,24 @@ var Person = /** @class */ (function () {
     Person.prototype.personInfo = function () {
         return this.getFullName() + " makes $" + this.weeklyWage() + " per Week!";
     };
+    Person.prototype.addCerts = function () {
+        var certs = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            certs[_i] = arguments[_i];
+        }
+        for (var i = 0; i < certs.length; i++) {
+            this.degrees.push(certs[i]);
+        }
+    };
     return Person;
 }());
+console.log(Person.prototype.addCerts("Masters"));
 var person1 = new Person("Joe", "Smith", "23", "K-555", "Texas", "79903", "Teacher", 23);
 var person2 = new Person("Hannah", "Storm", "56", "K-556", "Connecticut", "06001", "Sports Anchor", 70);
 var person3 = new Person("Omar", "Little", "33", "K-576", "Maryland", "12116", "Character", 80);
 var person4 = new Person("Jack", "Hallsburg", "18", "K-585", "Maine", "03901", "Mad Scientist", 10);
 console.log(person4.weeklyWage());
+console.log(person4.addCerts("Masters"));
 document.getElementById("id1").innerHTML = person1.getFullName();
 document.getElementById("id2").innerHTML = person2.getLocation();
 document.getElementById("id3").innerHTML = person3.getNameAndPhone();

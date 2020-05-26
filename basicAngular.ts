@@ -15,6 +15,8 @@ class Person{
     private occupation: string;
     private hourlyWage: number;
     private hours: number;
+    private degrees: string[];
+    
 
     constructor(firstN: string, lastN: string, age: string, phone: string, state: string, zipcode: string, occupation: string, hourlyWage: number, hours?: number){
         this.firstN = firstN;
@@ -30,6 +32,7 @@ class Person{
         } else {
             this.hours = 40;
         }
+        
     }
 
     //getters
@@ -60,10 +63,15 @@ class Person{
     personInfo(): string{
         return this.getFullName() + " makes $" + this.weeklyWage() + " per Week!"
     }
-
+    addCerts(...certs){
+        for(let i = 0; i < certs.length; i++){
+            this.degrees.push(certs[i]);
+        }
+    }
    
-
+    
 }
+    console.log(Person.prototype.addCerts("Masters"));
 
 let person1 = new Person("Joe", "Smith", "23", "K-555", "Texas", "79903", "Teacher", 23);
 
@@ -74,6 +82,7 @@ let person3 = new Person("Omar", "Little", "33", "K-576", "Maryland", "12116", "
 let person4 = new Person("Jack", "Hallsburg", "18", "K-585", "Maine", "03901", "Mad Scientist", 10);
 
 console.log(person4.weeklyWage());
+console.log(person4.addCerts("Masters"));
 
 document.getElementById("id1").innerHTML = person1.getFullName();
 
@@ -82,4 +91,5 @@ document.getElementById("id2").innerHTML = person2.getLocation();
 document.getElementById("id3").innerHTML = person3.getNameAndPhone();
 
 document.getElementById("id4").innerHTML = person4.getOccupation();
+
 document.getElementById("id5").innerHTML = person3.personInfo();
