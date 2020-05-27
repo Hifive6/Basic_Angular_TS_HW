@@ -11,15 +11,11 @@ export class FilterService {
     new Person("Joe", "Smales", 23),
     new Person("Jake", "Biggs", 45)
   ]
-  constructor(private aPerson: Person) { }
+  constructor() { }
 
-  getPerson(): Observable<Person[]>{
-    return of(this.personArray);
-    // return this.personArray.filter((person)=>{
-    //   this.delay(4000);
-    //   return person.getFullInfo();
-    }
-  
+  getPerson(): Person[]{
+    return this.personArray;
+  }
 
   
 

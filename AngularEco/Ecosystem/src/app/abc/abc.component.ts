@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../filter.service';
 import { Person } from '../person';
 
+
 @Component({
   selector: 'app-abc',
   templateUrl: './abc.component.html',
@@ -9,23 +10,21 @@ import { Person } from '../person';
 })
 export class AbcComponent implements OnInit {
 
-  peopleList: Person[];
+  // peopleList: string[];
 
   constructor(private filterService: FilterService) { }
 
-  ngOnInit(): void {
-    
-    this.ngOnInit;
-   
-   
-  }
+  ngOnInit(): void {}
 
-  getPeople(){
-    this.filterService.getPerson().subscribe(p => 
-      this.peopleList = p);
+  // get people():{
+  //   console.log("Success")
+  //   this.filterService.getPerson().subscribe(p => 
+  //     this.peopleList = p.map((ap: any)=>{
+  //       return ap;
+  //     }));
+  
+  get peopleList(): Person[]{
+    return this.filterService.getPerson();
   }
-  // get peopleList(): Person[]{
-  //   return this.filterService.getPerson();
-  // }
 
 }
