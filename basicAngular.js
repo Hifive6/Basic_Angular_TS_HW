@@ -67,7 +67,7 @@ var Person = /** @class */ (function () {
     };
     return Person;
 }());
-var person0 = Person.newPerson({ firstN: "George", lastN: "Bergs", age: "23", phone: "K098" });
+var person0 = Person.newPerson({ firstN: "George", lastN: "Bergs", age: "23" });
 console.log(person0);
 var person1 = new Person("Joe", "Smith", "23", "K-555", "Texas", "79903", "Teacher", 23);
 var person2 = new Person("Hannah", "Storm", "56", "K-556", "Connecticut", "06001", "Sports Anchor", 70);

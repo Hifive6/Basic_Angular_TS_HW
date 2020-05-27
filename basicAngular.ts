@@ -68,7 +68,7 @@ class Person{
             this.degrees.push(certs[i]);
         }
     }
-    public static newPerson(config: PersonOptions):{ age: string, phone: string } {
+    static newPerson(config: PersonOptions):{ age: string, phone: string } {
         let newPerson = {
             age: "30",
             phone: "K-000"
@@ -97,7 +97,7 @@ interface PersonOptions{
 
 
 
-let person0 =  Person.newPerson({firstN: "George", lastN: "Bergs", age: "23", phone: "K098"});
+let person0 =  Person.newPerson({firstN: "George", lastN: "Bergs", age: "23"});
 console.log(person0);
 
 let person1 = new Person("Joe", "Smith", "23", "K-555", "Texas", "79903", "Teacher", 23);
