@@ -8,12 +8,21 @@ import { Person } from '../person';
   styleUrls: ['./abc.component.css']
 })
 export class AbcComponent implements OnInit {
+
   peopleList: Person[];
+
   constructor(private filterService: FilterService) { }
 
   ngOnInit(): void {
-    this.peopleList = this.filterService.getPerson();
+    
+    this.ngOnInit;
    
+   
+  }
+
+  getPeople(){
+    this.filterService.getPerson().subscribe(p => 
+      this.peopleList = p);
   }
   // get peopleList(): Person[]{
   //   return this.filterService.getPerson();

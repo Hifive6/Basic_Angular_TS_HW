@@ -13,16 +13,15 @@ export class FilterService {
   ]
   constructor(private aPerson: Person) { }
 
-  getPerson(): Person[]{
-    return this.personArray.filter((person)=>{
-      this.delay(4000);
-      return person.getFullInfo();
-    })
-  }
+  getPerson(): Observable<Person[]>{
+    return of(this.personArray);
+    // return this.personArray.filter((person)=>{
+    //   this.delay(4000);
+    //   return person.getFullInfo();
+    }
+  
 
-  // getAnotherPerson(): Observable<Person[]>{
-  //   return of(people);
-  // }
+  
 
   async delay(ms: number){
     await new Promise(resolve =>
