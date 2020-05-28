@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class FilterService {
+
   private personArray: Person[] = [
     new Person("Omar", "Little", 30),
     new Person("Joe", "Smales", 23),
@@ -13,15 +14,14 @@ export class FilterService {
   ]
   constructor() { }
 
-  getPerson(): Person[]{
-    return this.personArray;
-  }
 
+  getAnotherPerson(): Observable<Person[]>{
+    console.log("here")
+    return of(this.personArray.filter((person)=>{
+      return "Name: " + person.getFullInfo();
+    }))
+  }
   
-
-  async delay(ms: number){
-    await new Promise(resolve =>
-      setTimeout(()=> 
-       resolve(), ms));
-  }
+  
 }
+  
